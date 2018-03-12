@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+python run_discover.py "G:\Documents\Exp Data\CCF_sogou_2016\sogouu8.txt" "G:\Documents\Exp Data\CCF_sogou_2016\reports" --latin 50 0 0 0 --bigram 20 80 0 1.5 --unigram_2 20 40 0 1 --unigram_3 20 41 0 1 --iteration 2 --verbose 2
