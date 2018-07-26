@@ -43,13 +43,11 @@ Four parameters:
  
  2. aggregation coefficient: A larger `agg_coef` indicates a larger possibility of the co-occurrence of the two words.
  
- $$
- \text{agg_coef} = \frac{P(w1, w2)}{P(w1) \times P(w2)} = \frac{C(w1, w2) / \text{#nr_of_bigrams}}{ (C(w1) / \text{#nr_of_bigrams}) \times (C(w2) / \text{#nr_of_bigrams})}
- $$
+ <img src="http://latex.codecogs.com/gif.latex?\text{agg-coef}=\frac{P(w_1,w_2)}{P(w_1)P(w_2)}=\frac{C(w_1,w_2)/\text{\{nr-of-bigrams\}}}{[C(w_1)/\text{\{nr-of-bigrams\}}]*[C(w_2)\text{\{nr-of-bigrams\}}]}" border="0"/>
  
- where $C(w_1, w_2)$ indicates the counts of the pattern that $w_1$ is followed by $w_2$.
+ where `C(w_1, w_2)` indicates the counts of the pattern that `w_1` is followed by `w_2`.
  
- $C(w_1)$ and $C(w_2)$ indicate the count of the counts of $w_1$ and $w_2$ respectively.
+ `C(w_1)` and `C(w_2)` indicate the count of the counts of `w_1` and `w_2` respectively.
  
  3. minimum neighboring entropy
  
@@ -57,15 +55,13 @@ Four parameters:
  
  The minimum and maximum neighboring entropy are the minimum and maximum of left neighboring entropy and right neighboring entropy respectively.
  
- A larger neighboring entropy of a word $w$ indicates that $w$ collocates with mores possible words, which in turn indicates that $w$ is an independent word. For instance, "我是" has a large `tf` and a large `agg_coef` but a small `minimum neighboring entropy` so it's not a word.
+ A larger neighboring entropy of a word `w` indicates that `w` collocates with mores possible words, which in turn indicates that `w` is an independent word. For instance, "我是" has a large `tf` and a large `agg_coef` but a small `minimum neighboring entropy` so it's not a word.
  
 left entropy:
 
-$$
-Ent_{w} = -\sum_{w_l} P(w_l) log(P(w_l))
-$$
+ <img src="http://latex.codecogs.com/gif.latex?\text{Ent}_{w_l}=-\sum_{w_l}\cdotP(w_l|w)\log(P(w_l|w))" border="0"/>
 
-where $w_l$ are the set of unigrams that appear to the left of word $w$. This above-mentioned formula also applies to the right neighboring entropy.
+where `w_l` are the set of unigrams that appear to the left of word `w`. This above-mentioned formula also applies to the right neighboring entropy.
 
 ## Usage
  
@@ -78,7 +74,7 @@ python run_discover.py "G:\Documents\Exp Data\CCF_sogou_2016\sogouu8.txt" "G:\Do
 Run
 
 ```
-python run_discover.py
+python run_discover.py --help
 ```
 
 for further information and help.
@@ -137,13 +133,11 @@ If you encounter any problems, feel free to open an issue or contact me (rayarro
  
  2. 凝聚系数: 凝聚系数越大表明两个（字）词共同出现的概率越大（越不是偶然）。
  
- $$
- \text{agg_coef} = \frac{P(w1, w2)}{P(w1) \times P(w2)} = \frac{C(w1, w2) / \text{#nr_of_bigrams}}{ (C(w1) / \text{#nr_of_bigrams}) \times (C(w2) / \text{#nr_of_bigrams})}
- $$
+ <img src="http://latex.codecogs.com/gif.latex?\text{agg-coef}=\frac{P(w_1,w_2)}{P(w_1)P(w_2)}=\frac{C(w_1,w_2)/\text{\{nr-of-bigrams\}}}{[C(w_1)/\text{\{nr-of-bigrams\}}]*[C(w_2)\text{\{nr-of-bigrams\}}]}" border="0"/>
  
- 其中$C(w_1, w_2)$是词$w_1$和$w_2$共同出现的次数。
+ 其中`C(w_1, w_2)`是词`w_1`和`w_2`共同出现的次数。
  
- $C(w_1)$和$C(w_2)$是词$w_1$和$w_2$分别出现的次数。
+ `C(w_1)`和`C(w_2)`是词`w_1`和`w_2`分别出现的次数。
  
  3. 最小边界信息熵
  
@@ -155,11 +149,9 @@ If you encounter any problems, feel free to open an issue or contact me (rayarro
  
 左边界信息熵:
 
-$$
-Ent_{w} = -\sum_{w_l} P(w_l) log(P(w_l))
-$$
+ <img src="http://latex.codecogs.com/gif.latex?\text{Ent}_{w_l}=-\sum_{w_l}\cdotP(w_l|w)\log(P(w_l|w))" border="0"/>
 
-其中$w_l$是出现在$w$左边的所有unigram组成的集合，上面的公式同样适用于右边界信息熵的计算。
+其中`w_l`是出现在`w`左边的所有unigram组成的集合，上面的公式同样适用于右边界信息熵的计算。
 
 ## How-to
  
@@ -172,7 +164,7 @@ python run_discover.py "G:\Documents\Exp Data\CCF_sogou_2016\sogouu8.txt" "G:\Do
 运行
 
 ```
-python run_discover.py
+python run_discover.py --help
 ```
 
 来获取更多帮助。
