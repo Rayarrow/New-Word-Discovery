@@ -35,7 +35,7 @@ arg_parser.add_argument('--unigram_2', nargs=4, default=default_unigram2, type=f
                         help='A term which is composed of two Chinese characters and cannot be divided into other words. Reference argument --latin for further help.')
 arg_parser.add_argument('--unigram_3', nargs=4, default=default_unigram3, type=float,
                         help='A term which is composed of three Chinese characters and cannot be divided into other words. Reference argument --latin for further help.')
-arg_parser.add_argument('--iteration', default=default_iteration, type=float,
+arg_parser.add_argument('--iteration', default=default_iteration, type=int,
                         help='The next iteration will base its dictionary as the original dictionary plusing the new words discovered in the last iteration.')
 arg_parser.add_argument('--verbose', default=default_verbose, choices=[0, 1, 2], type=int,
                         help="Determines the verbosity of the reports. *** 0: only new word items and their term frequency.*** 1: min neighboring entropy and max neighboring entropy are supplemented. *** 2:left and right neighboring entropy are added.")
