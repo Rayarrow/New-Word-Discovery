@@ -245,7 +245,7 @@ class Discoverer(object):
         self.new_unigram_counter = OrderedDict(
             [(word, self.unigram_counter[word]) for word in self.unigram_counter if word in new_words])
 
-        self.new_unigram_stats = self.unigram_stats.ix[new_words].sort_values(by='agg_coef', ascending=False)
+        self.new_unigram_stats = self.unigram_stats.loc[new_words].sort_values(by='agg_coef', ascending=False)
         logger.info('New unigrams gotten. Please refer to `new_unigram_counter and `new_unigram_stats`.')
 
     def __parent(self, counter):
@@ -307,7 +307,7 @@ class Discoverer(object):
                 right_word_counter[each_word],
             ))
         # Name the index. This seems to be of no use, however.
-        words_index = pd.Index(words, name=['word{}'.format(num + 1) for num in range(self.__counter_grams(counter))])
+        words_index = pd.Index(words, name=('word{}'.format(num + 1) for num in range(self.__counter_grams(counter))))
         return pd.DataFrame(stats, index=words_index, columns=columns).sort_values(by='max_entropy', ascending=False)
 
     def _get_boundary_word_counts(self, counter):
